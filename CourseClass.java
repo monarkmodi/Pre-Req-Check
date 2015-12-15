@@ -29,6 +29,9 @@ public class CourseClass extends JPanel
 	CourseClass(ArrayList<CourseClass> prList)
 	{this("EMPTY", "EMPTY", "EMPTY",prList);}
 
+	public String courseCode()
+	{return courseCode;}
+
 	public int getMaxWidth()
 	{
 		int maxLength=0;

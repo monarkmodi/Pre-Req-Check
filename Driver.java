@@ -1,6 +1,6 @@
 import javax.swing.JPanel;
 import java.awt.Graphics;
-import java.util.ArrayList;
+import java.util.*;
 
 public class Driver extends JPanel
 {
@@ -14,6 +14,7 @@ public class Driver extends JPanel
 		this.givenClass = gClass;
 		ArrayList<CourseClass> preReqArr = new ArrayList<CourseClass>();
 		createArr(givenClass);
+		sortAndReduce(preReqArr);
 	}
 
 	//Creates the Pre-requisite classes array
@@ -30,6 +31,47 @@ public class Driver extends JPanel
 				createArr(pointer);
 			}
 		}
+	}
+
+	private ArrayList<CourseClass> sortAndReduce(ArrayList<CourseClass> arr)
+	{
+		ArrayList<CourseClass> retArrList = new ArrayList<CourseClass>();
+
+		//-------------Sort the array------------------------------
+
+		//Sorting the array using Arrays.sort()
+		//Comparator class for the sort() function
+		//Compares the two classes based on the CourseCode of the classes
+		class courseClassComparator implements Comparator<CourseClass>
+		{
+			@Override
+			public int compare(CourseClass c1, CourseClass c2)
+			{
+				return c1.courseCode().compareToIgnoreCase(c2.courseCode());
+			}
+		}
+
+		//Convert the arraylist to an array for sorting processes
+		CourseClass[] tempArr = new CourseClass[arr.size()];
+		arr.toArray(tempArr);
+		
+		//sort the array using the defined comparator
+		courseClassComparator comp = new courseClassComparator();
+		Arrays.sort(tempArr, comp);
+
+		//---------------Reduce the array--------------------------
+
+		//Reduce the sorted array
+		for(int iter=0; iter<tempArr.size; iter++)
+		{
+			if(iter<tempArr.size-1)
+				if(tempArr[iter].courseCode().equals(tempArr[iter+1].courseCode()))
+					continue;
+			else
+				retArrList.add(tempArr[iter]);
+		}
+		
+		return retArrList;
 	}
 
 	//Main Method

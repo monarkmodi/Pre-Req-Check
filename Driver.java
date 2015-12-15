@@ -14,7 +14,8 @@ public class Driver extends JPanel
 		this.givenClass = gClass;
 		ArrayList<CourseClass> preReqArr = new ArrayList<CourseClass>();
 		createArr(givenClass);
-		sortAndReduce(preReqArr);
+		preReqArr.clear();
+		preReqArr.addAll(sortAndReduce(preReqArr));
 	}
 
 	//Creates the Pre-requisite classes array
@@ -74,6 +75,14 @@ public class Driver extends JPanel
 		}
 		
 		return retArrList;
+	}
+
+	public void displayPR()
+	{
+		for(CourseClass iter : preReqArr)
+		{
+			System.out.println(iter.getCourseCode() + " ");
+		}
 	}
 
 	//Main Method

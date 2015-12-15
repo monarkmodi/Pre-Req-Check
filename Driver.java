@@ -67,8 +67,10 @@ public class Driver extends JPanel
 			if(iter<tempArr.size-1)
 				if(tempArr[iter].courseCode().equals(tempArr[iter+1].courseCode()))
 					continue;
-			else
-				retArrList.add(tempArr[iter]);
+				else
+					retArrList.add(tempArr[iter]);
+			else 
+				retArrList.add(tempArr[iter]);	
 		}
 		
 		return retArrList;

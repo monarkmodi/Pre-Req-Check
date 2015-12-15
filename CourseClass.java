@@ -29,8 +29,27 @@ public class CourseClass extends JPanel
 	CourseClass(ArrayList<CourseClass> prList)
 	{this("EMPTY", "EMPTY", "EMPTY",prList);}
 
-	public String courseCode()
+	//----------FOR TESTING PURPOSES--------------
+	CourseClass(String cCode,ArrayList<CourseClass> prList)
+	{this("EMPTY", "EMPTY", cCode, prList);}
+
+	public String getCourseCode()
 	{return courseCode;}
+
+	public boolean searchCourseCode(CourseClass toSearch)
+	{
+		boolean flag=false;
+		for(int iter=0; iter<toSearch.preReqArr.size(); iter++)
+		{
+			if(toSearch.getCourseCode().equals(preReqArr.get(iter)))
+			{
+				flag=true;
+				break;
+			}
+		}
+
+		return flag;
+	}
 
 	public int getMaxWidth()
 	{

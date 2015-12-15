@@ -18,7 +18,7 @@ public class Driver extends JPanel
 	}
 
 	//Creates the Pre-requisite classes array
-	//Uses deep access of n-ary tree
+	//Uses deep access of n-ary structure
 	private void createArr(CourseClass cPassed)
 	{
 		for(CourseClass pointer : cPassed.preReqArr)
@@ -47,7 +47,7 @@ public class Driver extends JPanel
 			@Override
 			public int compare(CourseClass c1, CourseClass c2)
 			{
-				return c1.courseCode().compareToIgnoreCase(c2.courseCode());
+				return c1.getCourseCode().compareToIgnoreCase(c2.getCourseCode());
 			}
 		}
 
@@ -65,7 +65,7 @@ public class Driver extends JPanel
 		for(int iter=0; iter<tempArr.length; iter++)
 		{
 			if(iter<tempArr.length-1)
-				if(tempArr[iter].courseCode().equals(tempArr[iter+1].courseCode()))
+				if(tempArr[iter].getCourseCode().equals(tempArr[iter+1].getCourseCode()))
 					continue;
 				else
 					retArrList.add(tempArr[iter]);

@@ -62,9 +62,9 @@ public class Driver extends JPanel
 		//---------------Reduce the array--------------------------
 
 		//Reduce the sorted array
-		for(int iter=0; iter<tempArr.size; iter++)
+		for(int iter=0; iter<tempArr.length; iter++)
 		{
-			if(iter<tempArr.size-1)
+			if(iter<tempArr.length-1)
 				if(tempArr[iter].courseCode().equals(tempArr[iter+1].courseCode()))
 					continue;
 				else

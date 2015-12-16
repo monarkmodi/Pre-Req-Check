@@ -51,6 +51,17 @@ public class Tester
 				}
 				case 2 :
 				{
+					System.out.print("Enter the courseCode : ");
+					String courseName = readName.nextLine();
+					if(!read.search(courseName))
+					{
+						System.out.println(courseName + " does not exist in the database");
+					}
+					else
+					{
+						Driver drive = new Driver(read.searchAndReturn(courseName));
+						drive.displayPR();
+					}
 					break;
 				}
 				case 3 :
@@ -59,7 +70,7 @@ public class Tester
 				}
 				default : break;
 			}
-		}while(true); //+++++++CHANGE THIS++++++++++
+		}while(choice!=3); //+++++++CHANGE THIS++++++++++
 	
 		//Close the Scanners
 		inputChoice.close();

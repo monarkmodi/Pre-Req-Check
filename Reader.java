@@ -46,6 +46,7 @@ public CourseClass searchAndReturn(String courseCode){
      return courseCode; //make changes here
   }
 
+<<<<<<< HEAD
 }
 
 public boolean search(String courseCode){
@@ -57,6 +58,12 @@ public boolean search(String courseCode){
 	}
  	else{
 	return false;
+=======
+	public boolean search(String courseCode)
+	{
+		boolean flag=true;
+		return flag;
+>>>>>>> a2857d8ffa3d5cd11fa0df8752e7fa20a88e3926
 	}
 
 	

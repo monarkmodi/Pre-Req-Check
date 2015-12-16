@@ -26,12 +26,15 @@ public class CourseClass extends JPanel
 	CourseClass(String iName, String cName, String cCode, ArrayList<CourseClass> prList)
 	{this(iName,cName,cCode,true,true,prList);}
 
-	CourseClass(ArrayList<CourseClass> prList)
-	{this("EMPTY", "EMPTY", "EMPTY",prList);}
-
 	//----------FOR TESTING PURPOSES--------------
 	CourseClass(String cCode,ArrayList<CourseClass> prList)
 	{this("EMPTY", "EMPTY", cCode, prList);}
+	//--------------------------------------------
+
+	CourseClass(String cCode)
+	{
+		this(cCode, new ArrayList<CourseClass>());
+	}
 
 	public String getCourseCode()
 	{return courseCode;}

@@ -70,7 +70,7 @@ public class Tester
 				}
 				default : break;
 			}
-		}while(true); //+++++++CHANGE THIS++++++++++
+		}while(choice!=3); //+++++++CHANGE THIS++++++++++
 	
 		//Close the Scanners
 		inputChoice.close();

@@ -26,6 +26,8 @@ public class Reader
 
 	public boolean search(String courseCode)
 	{
+		boolean flag=true;
+		return flag;
 	}
 
 }

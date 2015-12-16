@@ -5,7 +5,6 @@ public class Tester
 {
 	public static void main(String[] args)
 	{
-		ArrayList<CourseClass> temp = new ArrayList<CourseClass>();
 		int choice=0;
 		Reader read = new Reader();
 		Scanner inputChoice = new Scanner(System.in);
@@ -18,6 +17,7 @@ public class Tester
 			System.out.println("2. Show Pre-requisite for a given class");
 			System.out.println("3. Exit");
 			choice = inputChoice.nextInt();
+
 			switch(choice)
 			{
 				case 1 :
@@ -25,9 +25,10 @@ public class Tester
 					ArrayList<CourseClass> prList = new ArrayList<CourseClass>();
 					System.out.print("Enter the courseCode : ");
 					String courseName = readName.nextLine();
+
+					//Create the list of all Pre-requisites
 					System.out.print("Enter the course codes for the pre-requisite class (comma-separated) : ");
 					String prString = readName.nextLine();
-
 					String[] prArr = prString.split("[,]");
 					for(String iter : prArr)
 					{
@@ -40,8 +41,11 @@ public class Tester
 							}
 						else
 							prList.add(read.searchAndReturn(iter));
-
 					}
+
+					//Create and add the new CourseClass 
+					CourseClass temp = new CourseClass(courseName, prList);
+					read.add(temp);
 
 					break;
 				}
@@ -55,6 +59,10 @@ public class Tester
 				}
 				default : break;
 			}
-		}while(1); //+++++++CHANGE THIS++++++++++
-	}
+		}while(true); //+++++++CHANGE THIS++++++++++
+	
+		//Close the Scanners
+		inputChoice.close();
+		readName.close();
+	}// Main ends
 }

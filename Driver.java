@@ -1,8 +1,6 @@
-import javax.swing.JPanel;
-import java.awt.Graphics;
 import java.util.*;
 
-public class Driver extends JPanel
+public class Driver
 {
 	//Class Attributes
 	private ArrayList<CourseClass> preReqArr;
